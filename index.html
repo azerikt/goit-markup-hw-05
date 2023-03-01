@@ -62,16 +62,53 @@
           <button data-modal-open class="order-buttom" type="button">
             Zamów usługe
           </button>
-          <div class="backdrop is-hidden" data-modat>
-            <div>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Aspernatur vel cumque non fugit. Quibusdam, quaerat minima.
-                Officia sint fugiat inventore ad minima optio dicta quo, iusto
-                dolore repellat et libero.
-              </p>
+          <div class="backdrop is-hidden order-box" data-modal>
+            <div class="modal-window">
+              <h1 class="order-header">
+                Zostaw swoje dane w formularzu poniżej
+              </h1>
+              <form name="add-order" autocomplete="on" novalidate>
+                <p class="input-type">E-mail</p>
+
+                <label>
+                  <input type="text" name="first-name" id="add-order" />
+                </label>
+
+                <p class="input-type">Telefon</p>
+                <label>
+                  <input type="tel" name="phone-number" id="add-order" />
+                </label>
+
+                <p class="input-type">E-mail</p>
+                <label>
+                  <input type="email" name="email" id="add-order" />
+                </label>
+
+                <label>
+                  <p class="input-type">Komentarz</p>
+                  <textarea
+                    name="feedback"
+                    rows="8"
+                    placeholder="Wprowadź tekst"
+                  ></textarea>
+                </label>
+
+                <label>
+                  Oświadczam iż akceptuję
+                  <a href="#" class="acent-link">Regulamin</a> i
+                  <a href="#" class="acent-link">Politykę Prywatności.</a>
+                  <input type="checkbox" name="hobby" value="music" nochecked />
+                </label>
+
+                <button type="submit">Wyślij</button>
+              </form>
+
+              <button type="button" class="order-close" data-modal-close>
+                <svg width="30" height="30" class="footer-soc-icon">
+                  <use href="./images/icons.svg#icon-close-black"></use>
+                </svg>
+              </button>
             </div>
-            <button data-modal-close>Close</button>
           </div>
         </div>
       </section>

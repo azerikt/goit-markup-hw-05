@@ -236,6 +236,7 @@ header {
 }
 .portfolio-item {
   display: block;
+  transition: transform 250ms var(--cubic-bezier);
 }
 .portfolio-item:hover {
   box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.08),
@@ -245,12 +246,10 @@ header {
     rgba(47, 48, 58, 0.8),
     rgba(47, 48, 58, 0.8)
   );
-  height: 294px;
-  width: 370px;
-  transform: translatex(0);
 }
-.layout-box p {
-  margin: 0;
+.layout-layout-text p {
+  position: relative;
+  overflow: hidden;
 }
 .layout-text {
   color: var(--buttons-port-color);
@@ -260,33 +259,29 @@ header {
   line-height: 1.55;
   letter-spacing: 0.03em;
 }
-.layout-portfolio {
-  overflow-y: hidden;
-  width: 294px;
-  height: 370px;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+.layout-box {
+  overflow: hidden;
+  width: 370px;
+  height: 294px;
   background-color: rgba(33, 150, 243, 0.9);
-  transform: translateY(100%);
-  transition: transform 250ms var(--cubic-bezier);
 }
-/*
+
 @keyframes layout-portfolio {
   0% {
     transform: translate(0, 0);
   }
 
   50% {
-    transform: translate(-50px, -100px);
+    transform: translate(50%, 75%);
   }
 
   100% {
     transform: translate(0, 0);
   }
-} */
+}
+.portfolio-item:hover {
+  transform: translateY(-100%);
+}
 /* ----- Order -----*/
 .order {
   margin: 0 auto;
@@ -337,10 +332,82 @@ button {
   cursor: pointer;
   color: var(--buttons-port-color);
 }
-.is-hidden {
+.order-box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
+.modal-window {
+  display: flex;
+  margin: auto;
+  flex-direction: column;
+  overflow: hidden;
+  border-radius: 4px;
+  background-color: var(--secondary-text-color);
+  width: 528px;
+  height: 581px;
+}
+.order-close {
+  position: absolute;
+  border-radius: 50%;
+  background-color: var(--secondary-text-color);
+  border: solid 1px rgba(0, 0, 0, 0.1);
+}
+.backdrop.is-hidden {
   visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
 }
 .backdrop {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.2);
+  transition: all 250ms var(--cubic-bezier);
+}
+label {
+  display: flex;
+  flex-direction: column;
+  margin-left: 40px;
+  margin-right: 40px;
+}
+
+.order-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: Roboto;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 1.17;
+  letter-spacing: 0.03em;
+  margin: 40px 40px 12px 40px;
+}
+
+input[type="text"],
+[type="tel"],
+[type="email"] {
+  width: 448px;
+  height: 40px;
+}
+.input-type {
+  margin: 10px 0px 4px 40px;
+}
+.acent-link {
+  color: var(--acent-color);
+  text-decoration: underline;
+}
+.input-type:last-child {
+  margin-left: 0px;
+}
+.input-form {
+  width: 448px;
+  height: 40px;
+}
+.input-form::before {
+  content: "";
 }
 /* ----- Lorem ----- */
 .lorem-box {
