@@ -266,19 +266,6 @@ header {
   background-color: rgba(33, 150, 243, 0.9);
 }
 
-@keyframes layout-portfolio {
-  0% {
-    transform: translate(0, 0);
-  }
-
-  50% {
-    transform: translate(50%, 75%);
-  }
-
-  100% {
-    transform: translate(0, 0);
-  }
-}
 .portfolio-item:hover {
   transform: translateY(-100%);
 }
@@ -332,26 +319,27 @@ button {
   cursor: pointer;
   color: var(--buttons-port-color);
 }
-.order-box {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-}
 .modal-window {
-  display: flex;
-  margin: auto;
-  flex-direction: column;
-  overflow: hidden;
-  border-radius: 4px;
-  background-color: var(--secondary-text-color);
-  width: 528px;
   height: 581px;
+  width: 528px;
+  border-radius: 4px;
+  background-color: rgba(255, 255, 255, 1);
+  display: flex;
+  justify-content: flex-end;
+  position: relative;
+  transition: transform;
+  transition-duration: 250ms;
+  transition-timing-function: linear;
 }
 .order-close {
   position: absolute;
+  width: 30px;
+  height: 30px;
+  margin-top: 8px;
+  margin-right: 8px;
   border-radius: 50%;
-  background-color: var(--secondary-text-color);
   border: solid 1px rgba(0, 0, 0, 0.1);
+  background-color: var(--secondary-text-color);
 }
 .backdrop.is-hidden {
   visibility: hidden;
@@ -360,10 +348,19 @@ button {
 }
 .backdrop {
   position: fixed;
-  top: 0px;
-  left: 0px;
+  z-index: 3;
   width: 100%;
   height: 100%;
+  top: 0;
+  left: 0;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: visibility, opacity;
+  transition-duration: 250ms;
+  transition-timing-function: linear;
   background-color: rgba(0, 0, 0, 0.2);
   transition: all 250ms var(--cubic-bezier);
 }
@@ -398,9 +395,6 @@ input[type="text"],
 .acent-link {
   color: var(--acent-color);
   text-decoration: underline;
-}
-.input-type:last-child {
-  margin-left: 0px;
 }
 .input-form {
   width: 448px;
@@ -471,6 +465,7 @@ input[type="text"],
     rgba(47, 48, 58, 0.8),
     rgba(47, 48, 58, 0.8)
   );
+  z-index: 0;
 }
 .offer-desc {
   color: var(--secondary-text-color);
