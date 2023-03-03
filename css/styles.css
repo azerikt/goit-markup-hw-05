@@ -120,6 +120,9 @@ header {
   font-size: 14px;
   line-height: 1.14;
   letter-spacing: 0.02em;
+  display: block;
+  padding: 32px 0;
+  transition: color 250ms var(--cubic-bezier);
 }
 .link:hover,
 .link:focus {
@@ -149,25 +152,26 @@ header {
   font-size: 14px;
   line-height: 1.14;
   letter-spacing: 0.02em;
+  transition: color 250ms var(--cubic-bezier);
 }
 .icon-contacts {
   margin-right: 10px;
   fill: currentColor;
 }
 .current {
+  position: relative;
   color: var(--acent-color);
 }
 .current::after {
-  display: flex;
+  display: block;
   content: "";
   border-radius: 2px;
   background: var(--acent-color);
   padding: 2px;
-  width: auto;
+  width: 100%;
   height: 2px;
-  height: auto;
-  position: relative;
-  top: 30px;
+  position: absolute;
+  bottom: 0;
 }
 /* ------ Filter ------ */
 .filter {
@@ -190,7 +194,8 @@ header {
   letter-spacing: 0.03em;
   list-style-type: none;
   transition: color 250ms var(--cubic-bezier),
-    background-color 250ms var(--cubic-bezier);
+    background-color 250ms var(--cubic-bezier),
+    box-shadow 250ms var(--cubic-bezier);
 }
 .filter:last-child {
   margin-right: 0px;
@@ -227,7 +232,6 @@ header {
   margin-right: 0px;
 }
 .portfolio-descr {
-  z-index: 5;
   border-left: 1px solid #eee;
   border-right: 1px solid #eee;
   border-bottom: 1px solid #eee;
@@ -235,11 +239,10 @@ header {
 }
 .portfolio-item {
   display: block;
-  transition: transform 250ms var(--cubic-bezier);
+  transition: box-shadow 250ms var(--cubic-bezier);
 }
-.portfolio-item:hover .layout-box {
-  z-index: 1;
-  transition: transform 250ms var(--cubic-bezier);
+.portfolio-item:hover .layout-box,
+.portfolio-item:focus .layout-box {
   transform: translateY(0%);
 }
 
@@ -267,8 +270,9 @@ header {
   left: 0;
   width: 370px;
   height: 294px;
-  transform: translateY(+150%);
+  transform: translateY(100%);
   background-color: rgba(33, 150, 243, 0.9);
+  transition: transform 250ms var(--cubic-bezier);
 }
 .layout-portfolio {
   overflow: hidden;
@@ -482,7 +486,7 @@ input[type="text"],
   color: var(--secondary-text-color);
   text-transform: uppercase;
   font-family: Roboto;
-  font-style: Bold;
+  font-weight: 700;
   font-size: 14px;
   letter-spacing: 0.03em;
   line-height: 1.14;
@@ -666,7 +670,8 @@ input[type="text"],
   letter-spacing: 0.03em;
   margin-bottom: 20px;
 }
-.footer-link:hover {
+.footer-link:hover,
+.footer-link:focus {
   background-color: var(--acent-color);
   border-radius: 50%;
 }
